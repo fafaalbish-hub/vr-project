@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="html-tag">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,35 +14,6 @@
             font-family: 'Tajawal', sans-serif;
             margin: 0;
             padding: 0;
-            transition: all 0.3s ease;
-        }
-
-        /* تنسيق زر تغيير اللغة الاحترافي */
-        .lang-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #c084fc;
-            color: #0b0f19;
-            border: none;
-            padding: 8px 15px;
-            font-weight: bold;
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(192, 132, 252, 0.3);
-            z-index: 1000;
-            font-family: 'Tajawal', sans-serif;
-        }
-        
-        /* تحريك الزر لليمين إذا تحول الاتجاه للإنجليزي */
-        html[dir="ltr"] .lang-btn {
-            left: auto;
-            right: 20px;
-        }
-
-        .lang-btn:hover {
-            background-color: #a855f7;
-            color: #ffffff;
         }
 
         header {
@@ -111,13 +82,9 @@
             border: 1px solid #374151;
             margin-bottom: 25px;
             padding: 25px;
-            border-radius: 166px; 
+            text-align: right;
             border-radius: 16px; 
         }
-
-        /* تعديل اتجاه النص تلقائياً حسب اللغة */
-        html[dir="rtl"] .card { text-align: right; }
-        html[dir="ltr"] .card { text-align: left; }
 
         .card h2 {
             color: #c084fc; 
@@ -138,15 +105,13 @@
             border: 2px solid #374151;
             padding: 20px;
             border-radius: 14px;
+            text-align: right;
             display: inline-block;
             width: 45%;
             margin: 1%;
             vertical-align: top;
             box-sizing: border-box;
         }
-        
-        html[dir="rtl"] .topic-box { text-align: right; }
-        html[dir="ltr"] .topic-box { text-align: left; }
 
         .topic-box:hover {
             background-color: #1e1b4b; 
@@ -223,170 +188,82 @@
         alert("مرحباً بكم في مشروع التقنية الرقمية للطالبة فجر البيشي - شعبة 202");
     </script>
 
-    <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">English</button>
-
     <header>
-        <h1 id="main-title">الواقع الافتراضي والمعزز</h1>
-        <div class="welcome-msg" id="welcome-sub">مرحباً بكم في موقعي لاستكشاف تقنيات المستقبل</div>
-        <p id="student-info">عمل الطالبة: فجر البيشي | شعبة: 202</p>
+        <h1>الواقع الافتراضي والمعزز</h1>
+        <div class="welcome-msg">مرحباً بكم في موقعي لاستكشاف تقنيات المستقبل</div>
+        <p>عمل الطالبة: فجر البيشي | شعبة: 202</p>
     </header>
 
     <div class="menu">
-        <a href="#welcome" id="nav-home">الرئيسية</a>
-        <a href="#about" id="nav-about">حول التقنية</a>
-        <a href="#uses" id="nav-uses">مجالات الاستخدام</a>
-        <a href="#media" id="nav-media">فيديو توضيحي</a>
+        <a href="#welcome">الرئيسية</a>
+        <a href="#about">حول التقنية</a>
+        <a href="#uses">مجالات الاستخدام</a>
+        <a href="#media">فيديو توضيحي</a>
     </div>
 
     <div id="main-content">
         
         <div class="card" id="welcome">
-            <h2 id="card1-title">الجيل الجديد من التقنية</h2>
-            <p id="card1-text">شهدت السنوات الأخيرة تطوراً متسارعاً في وسائل التفاعل الرقمي، حيث انتقلنا من الشاشات التقليدية الثنائية الأبعاد إلى بيئات رقمية تفاعلية بالكامل تغير طريقة تعاملنا مع البيانات والمعلومات اليومية. تهدف هذه الحلول البرمجية المتقدمة إلى تحسين تجربة المستخدم ودمج المحاكاة الذكية في مختلف مجالات الحياة العملية والعلمية.</p>
+            <h2>الجيل الجديد من التقنية</h2>
+            <p>شهدت السنوات الأخيرة تطوراً متسارعاً في وسائل التفاعل الرقمي، حيث انتقلنا من الشاشات التقليدية الثنائية الأبعاد إلى بيئات رقمية تفاعلية بالكامل تغير طريقة تعاملنا مع البيانات والمعلومات اليومية. تهدف هذه الحلول البرمجية المتقدمة إلى تحسين تجربة المستخدم ودمج المحاكاة الذكية في مختلف مجالات الحياة العملية والعلمية.</p>
         </div>
 
         <div class="card" id="about">
-            <h2 id="card2-title">ما هي هذه التقنية؟</h2>
-            <p id="card2-text">هي تقنية جديدة تسمح لنا بنقل وتجربة عوالم خيالية أو حقيقية وكأننا داخلها تماماً باستخدام نظارات وأجهزة خاصة لتدمج البيئة المحيطة بأنظمة الحاسب المتطورة. تعتمد التقنية على دمج الحواس البشرية مع الرسوميات المصممة بواسطة الكمبيوتر لإنشاء محاكاة بصرية وصوتية عالية الدقة.</p>
+            <h2>ما هي هذه التقنية؟</h2>
+            <p>هي تقنية جديدة تسمح لنا بنقل وتجربة عوالم خيالية أو حقيقية وكأننا داخلها تماماً باستخدام نظارات وأجهزة خاصة لتدمج البيئة المحيطة بأنظمة الحاسب المتطورة. تعتمد التقنية على دمج الحواس البشرية مع الرسوميات المصممة بواسطة الكمبيوتر لإنشاء محاكاة بصرية وصوتية عالية الدقة.</p>
         </div>
 
         <div class="card" id="uses">
-            <h2 id="card3-title">أبرز استخدامات التقنية</h2>
+            <h2>أبرز استخدامات التقنية</h2>
             
             <div class="topic-box">
-                <h3 id="use1-title">أولاً: الطب والتدريب الجراحي</h3>
-                <p id="use1-text">تتيح للأطباء وطلاب الطب إجراء عمليات جراحية افتراضية دقيقة ومحاكاة الحالات الحرجة قبل تطبيقها على أرض الواقع، مما يرفع الكفاءة ويقلل الأخطاء.</p>
+                <h3>أولاً: الطب والتدريب الجراحي</h3>
+                <p>تتيح للأطباء وطلاب الطب إجراء عمليات جراحية افتراضية دقيقة ومحاكاة الحالات الحرجة قبل تطبيقها على أرض الواقع، مما يرفع الكفاءة ويقلل الأخطاء.</p>
                 <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
             </div>
 
             <div class="topic-box">
                 <h3>ثانياً: التعليم والمحاكاة العلمية</h3>
-                <p id="use2-text">تساعد الطلاب على استكشاف الفضاء الخارجي، وزيارة المواقع التاريخية القديمة، وإجراء التجارب الكيميائية الخطيرة داخل مختبرات افتراضية آمنة.</p>
+                <p>تساعد الطلاب على استكشاف الفضاء الخارجي، وزيارة المواقع التاريخية القديمة، وإجراء التجارب الكيميائية الخطيرة داخل مختبرات افتراضية آمنة.</p>
                 <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
             </div>
 
             <div class="topic-box">
-                <h3 id="use3-title">ثالثاً: الألعاب والترفيه الرقمي</h3>
-                <p id="use3-text">تنقل اللاعب إلى قلب الحدث ليتفاعل مع البيئة المحيطة به ويتحرك داخلها بحرية كاملة، مما يوفر تجربة غامرة ومستويات غير مسبوقة من الواقعية.</p>
+                <h3>ثالثاً: الألعاب والترفيه الرقمي</h3>
+                <p>تنقل اللاعب إلى قلب الحدث ليتفاعل مع البيئة المحيطة به ويتحرك داخلها بحرية كاملة، مما يوفر تجربة غامرة ومستويات غير مسبوقة من الواقعية.</p>
                 <img src="imges/gaming.jpg" onerror="this.src='gaming.jpg'; this.onerror=function(){this.src='imges/gaming.png';};" alt="الألعاب والترفيه الرقمي">
             </div>
 
             <div class="topic-box">
-                <h3 id="use4-title">رابعاً: الدفاع والأمان</h3>
-                <p id="use4-text">تستخدم في تدريب الطيارين وأفراد القوات المسلحة على قيادة المركبات ومواجهة السيناريوهات القتالية الصعبة من خلال بيئة محاكاة آمنة تماماً.</p>
+                <h3>رابعاً: الدفاع والأمان</h3>
+                <p>تستخدم في تدريب الطيارين وأفراد القوات المسلحة على قيادة المركبات ومواجهة السيناريوهات القتالية الصعبة من خلال بيئة محاكاة آمنة تماماً.</p>
                 <img src="imges/military.jpg" onerror="this.src='military.jpg'; this.onerror=function(){this.src='imges/military.png';};" alt="الدفاع والأمان">
             </div>
         </div>
 
         <div class="card" id="media">
-            <p id="video-intro">شاهد هذا المقطع اللي يوضح الفرق بين الواقع الافتراضي والمعزز:</p>
+            <p>شاهد هذا المقطع اللي يوضح الفرق بين الواقع الافتراضي والمعزز:</p>
             
             <video controls autoplay muted>
                 <source src="videos/vr-video.mp4" type="video/mp4">
                 <source src="vr-video.mp4" type="video/mp4">
                 <source src="videos/video.mp4" type="video/mp4">
             </video>
-            
-            <p id="audio-alert" style="text-align: center; color: #f43f5e; font-weight: bold; margin-top: 15px; font-size: 14px;">
+
+            <p style="text-align: center; color: #f43f5e; font-weight: bold; margin-top: 15px; font-size: 14px;">
                 ⚠️ فضلاً، لا تنسى تفعيل صوت الفيديو من زر التحكم للاستماع إلى الشرح.
             </p>
             
-            <div class="thanks-msg" id="thanks-text">شكراً لكم على المشاهدة</div>
+            <div class="thanks-msg">شكراً لكم على المشاهدة</div>
         </div>
 
     </div>
 
     <footer>
-        <p id="footer-contact">للتواصل:</p>
+        <p>للتواصل:</p>
         <a href="mailto:Fafaalbish@gmail.com">Fafaalbish@gmail.com</a>
-        <p id="footer-rights" style="color: #6b7280; font-size: 13px; margin-top: 15px;">جميع الحقوق محفوظة &copy; للطالبة فجر البيشي 2026</p>
+        <p style="color: #6b7280; font-size: 13px; margin-top: 15px;">جميع الحقوق محفوظة &copy; للطالبة فجر البيشي 2026</p>
     </footer>
-
-    <script>
-        function toggleLanguage() {
-            const html = document.getElementById('html-tag');
-            const btn = document.getElementById('lang-toggle');
-            
-            if (html.getAttribute('dir') === 'rtl') {
-                html.setAttribute('dir', 'ltr');
-                html.setAttribute('lang', 'en');
-                btn.innerText = 'العربية';
-                
-                document.getElementById('main-title').innerText = 'Virtual & Augmented Reality';
-                document.getElementById('welcome-sub').innerText = 'Welcome to my website to explore future technologies';
-                document.getElementById('student-info').innerText = 'Prepared by: Fajr Al-Bishi | Section: 202';
-                
-                document.getElementById('nav-home').innerText = 'Home';
-                document.getElementById('nav-about').innerText = 'About Tech';
-                document.getElementById('nav-uses').innerText = 'Fields of Use';
-                document.getElementById('nav-media').innerText = 'Video Demo';
-                
-                document.getElementById('card1-title').innerText = 'The New Generation of Technology';
-                document.getElementById('card1-text').innerText = 'In recent years, digital interaction has evolved rapidly, moving from traditional 2D screens to fully interactive digital environments. These advanced software solutions aim to improve user experience and integrate smart simulation into various fields of practical and scientific life.';
-                
-                document.getElementById('card2-title').innerText = 'What is this technology?';
-                document.getElementById('card2-text').innerText = 'It is a modern technology that allows us to experience imaginary or real worlds using special glasses and devices that merge the surroundings with advanced computer systems. It integrates human senses with computer graphics to create high-precision visual and audio simulations.';
-                
-                document.getElementById('card3-title').innerText = 'Key Uses of Technology';
-                document.getElementById('use1-title').innerText = '1. Medicine & Surgical Training';
-                document.getElementById('use1-text').innerText = 'Allows doctors and medical students to perform precise virtual surgeries and simulate critical cases before applying them in reality, raising efficiency and reducing errors.';
-                
-                document.getElementById('use2-title').innerText = '2. Education & Scientific Simulation';
-                document.getElementById('use2-text').innerText = 'Helps students explore outer space, visit ancient historical sites, and conduct dangerous chemical experiments inside safe virtual laboratories.';
-                
-                document.getElementById('use3-title').innerText = '3. Gaming & Digital Entertainment';
-                document.getElementById('use3-text').innerText = 'Brings the player into the heart of the action to interact with the surroundings and move freely, providing an immersive experience and unprecedented levels of realism.';
-                
-                document.getElementById('use4-title').innerText = '4. Defense & Security';
-                document.getElementById('use4-text').innerText = 'Used in training pilots and military personnel to drive vehicles and face difficult combat scenarios through a completely safe simulation environment.';
-                
-                document.getElementById('video-intro').innerText = 'Watch this clip explaining the difference between Virtual and Augmented Reality:';
-                document.getElementById('audio-alert').innerText = '⚠️ Please do not forget to unmute the video to hear the explanation.';
-                document.getElementById('thanks-text').innerText = 'Thank you for watching';
-                document.getElementById('footer-contact').innerText = 'Contact:';
-                document.getElementById('footer-rights').innerText = 'All Rights Reserved &copy; Student Fajr Al-Bishi 2026';
-                
-            } else {
-                html.setAttribute('dir', 'rtl');
-                html.setAttribute('lang', 'ar');
-                btn.innerText = 'English';
-                
-                document.getElementById('main-title').innerText = 'الواقع الافتراضي والمعزز';
-                document.getElementById('welcome-sub').innerText = 'مرحباً بكم في موقعي لاستكشاف تقنيات المستقبل';
-                document.getElementById('student-info').innerText = 'عمل الطالبة: فجر البيشي | شعبة: 202';
-                
-                document.getElementById('nav-home').innerText = 'الرئيسية';
-                document.getElementById('nav-about').innerText = 'حول التقنية';
-                document.getElementById('nav-uses').innerText = 'مجالات الاستخدام';
-                document.getElementById('nav-media').innerText = 'فيديو توضيحي';
-                
-                document.getElementById('card1-title').innerText = 'الجيل الجديد من التقنية';
-                document.getElementById('card1-text').innerText = 'شهدت السنوات الأخيرة تطوراً متسارعاً في وسائل التفاعل الرقمي، حيث انتقلنا من الشاشات التقليدية الثنائية الأبعاد إلى بيئات رقمية تفاعلية بالكامل تغير طريقة تعاملنا مع البيانات والمعلومات اليومية. تهدف هذه الحلول البرمجية المتقدمة إلى تحسين تجربة المستخدم ودمج المحاكاة الذكية في مختلف مجالات الحياة العملية والعلمية.';
-                
-                document.getElementById('card2-title').innerText = 'ما هي هذه التقنية؟';
-                document.getElementById('card2-text').innerText = 'هي تقنية جديدة تسمح لنا بنقل وتجربة عوالم خيالية أو حقيقية وكأننا داخلها تماماً باستخدام نظارات وأجهزة خاصة لتدمج البيئة المحيطة بأنظمة الحاسب المتطورة. تعتمد التقنية على دمج الحواس البشرية مع الرسوميات المصممة بواسطة الكمبيوتر لإنشاء محاكاة بصرية وصوتية عالية الدقة.';
-                
-                document.getElementById('card3-title').innerText = 'أبرز استخدامات التقنية';
-                document.getElementById('use1-title').innerText = 'أولاً: الطب والتدريب الجراحي';
-                document.getElementById('use1-text').innerText = 'تتيح للأطباء وطلاب الطب إجراء عمليات جراحية افتراضية دقيقة ومحاكاة الحالات الحرجة قبل تطبيقها على أرض الواقع، مما يرفع الكفاءة ويقلل الأخطاء.';
-                
-                document.getElementById('use2-title').innerText = 'ثانياً: التعليم والمحاكاة العلمية';
-                document.getElementById('use2-text').innerText = 'تساعد الطلاب على استكشاف الفضاء الخارجي، وزيارة المواقع التاريخية القديمة، وإجراء التجارب الكيميائية الخطيرة داخل مختبرات افتراضية آمنة.';
-                
-                document.getElementById('use3-title').innerText = 'ثالثاً: الألعاب والترفيه الرقمي';
-                document.getElementById('use3-text').innerText = 'تنقل اللاعب إلى قلب الحدث ليتفاعل مع البيئة المحيطة به ويتحرك داخلها بحرية كاملة، مما يوفر تجربة غامرة ومستويات غير مسبوقة من الواقعية.';
-                
-                document.getElementById('use4-title').innerText = 'رابعاً: الدفاع والأمان';
-                document.getElementById('use4-text').innerText = 'تستخدم في تدريب الطيارين وأفراد القوات المسلحة على قيادة المركبات ومواجهة السيناريوهات القتالية الصعبة من خلال بيئة محاكاة آمنة تماماً.';
-                
-                document.getElementById('video-intro').innerText = 'شاهد هذا المقطع اللي يوضح الفرق بين الواقع الافتراضي والمعزز:';
-                document.getElementById('audio-alert').innerText = '⚠️ فضلاً، لا تنسى تفعيل صوت الفيديو من زر التحكم للاستماع إلى الشرح.';
-                document.getElementById('thanks-text').innerText = 'شكراً لكم على المشاهدة';
-                document.getElementById('footer-contact').innerText = 'للتواصل:';
-                document.getElementById('footer-rights').innerText = 'جميع الحقوق محفوظة &copy; للطالبة فجر البيشي 2026';
-            }
-        }
-    </script>
 
 </body>
 </html>
