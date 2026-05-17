@@ -18,13 +18,33 @@
             padding: 0;
         }
 
-        /* شريط التنقل العلوي المكون من div عادي و روابط */
-        div {
+        div.header-bar {
+            background-color: #111827; 
+            color: #ffffff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #374151;
+        }
+
+        div.header-bar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        div.header-bar a:hover {
+            color: #c084fc;
+        }
+
+        div.main-box {
             background-color: #111827; 
             color: #ffffff;
             text-align: center;
             padding: 25px;
-            margin-bottom: 25px;
+            margin: 25px;
+            border-radius: 12px;
         }
 
         h1 {
@@ -46,30 +66,21 @@
             color: #cbd5e1;
         }
 
-        a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-            margin: 5px 10px;
-            display: inline-block;
+        table.grid-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 20px;
+            margin-top: 20px;
         }
 
-        a:hover {
-            color: #c084fc;
-        }
-
-        /* تنسيق الصناديق لعرض الصورتين جنب بعض بشكل كلاسيكي بسيط */
-        div.item-block {
-            display: inline-block;
-            width: 45%;
-            min-width: 280px;
-            vertical-align: top;
-            margin: 10px;
+        td.grid-cell {
+            width: 50%;
             background-color: #1f2937;
             border: 1px solid #374151;
-            padding: 15px;
+            padding: 20px;
             border-radius: 12px;
+            text-align: center;
+            vertical-align: top;
         }
 
         img {
@@ -78,7 +89,7 @@
             object-fit: cover; 
             border-radius: 8px; 
             border: 1px solid #374151;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         video {
@@ -106,36 +117,31 @@
         button:hover {
             background-color: #a855f7;
         }
-
-        input {
-            padding: 8px;
-            font-size: 15px;
-            border-radius: 6px;
-            background-color: #1f2937;
-            color: #ffffff;
-            border: 1px solid #374151;
-            margin-left: 10px;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
 
-    <div>
+    <script>
+        window.alert("مرحباً بكم في مشروع التقنية الرقمية للطالبة فجر البيشي - شعبة 202");
+    </script>
+
+    <div class="header-bar">
         <span style="font-size: 24px; cursor: pointer; float: right; color: #cbd5e1;" onclick="toggleMenu()">☰</span>
         
         <a href="#q1">الرئيسية</a>
         <a href="#q2">حول التقنية</a>
         <a href="#q3">مجالات الاستخدام</a>
         <a href="#q4">فيديو توضيحي</a>
+
+        <span id="hijri-time" style="float: left; font-size: 14px; color: #c084fc; font-weight: bold; margin-top: 5px;"></span>
         <div style="clear: both;"></div>
     </div>
 
-    <div id="menu" style="display: none; background-color: #1f2937;">
-        <a href="#q1" style="display: block; padding: 10px 0;">الرئيسية</a>
-        <a href="#q2" style="display: block; padding: 10px 0;">حول التقنية</a>
-        <a href="#q3" style="display: block; padding: 10px 0;">مجالات الاستخدام</a>
-        <a href="#q4" style="display: block; padding: 10px 0;">فيديو توضيحي</a>
+    <div id="menu" style="display: none; background-color: #1f2937; padding: 10px; text-align: right; border-bottom: 1px solid #374151;">
+        <a href="#q1" style="display: block; color: #cbd5e1; text-decoration: none; padding: 10px; font-weight: bold;">الرئيسية</a>
+        <a href="#q2" style="display: block; color: #cbd5e1; text-decoration: none; padding: 10px; font-weight: bold;">حول التقنية</a>
+        <a href="#q3" style="display: block; color: #cbd5e1; text-decoration: none; padding: 10px; font-weight: bold;">مجالات الاستخدام</a>
+        <a href="#q4" style="display: block; color: #cbd5e1; text-decoration: none; padding: 10px; font-weight: bold;">فيديو توضيحي</a>
     </div>
 
     <script>
@@ -147,64 +153,68 @@
                 m.style.display = "block";
             }
         }
+
+        var options = { calendar: 'islamic-umalqura', day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+        var formatter = new Intl.DateTimeFormat('ar-SA', options);
+        document.getElementById("hijri-time").innerHTML = formatter.format(new Date());
     </script>
 
-    <div>
+    <div class="main-box">
         <h1>الواقع الافتراضي والمعزز</h1>
         <p>عمل الطالبة: فجر البيشي | شعبة: 202</p>
         
-        <button onclick="showGreeting()">اضغط هنا للترحيب</button>
+        <p id="welcome-text" style="color: #c084fc; font-weight: bold; font-size: 18px; margin-top: 15px;">مرحباً بكم</p>
+        <button onclick="changeGreeting()">اضغط هنا للترحيب</button>
 
         <script>
-            function showGreeting() {
-                window.alert("أهلاً وسهلاً بكم في المشروع");
+            function changeGreeting() {
+                document.getElementById("welcome-text").innerHTML = "أهلاً وسهلاً بكم";
             }
         </script>
     </div>
 
-    <div id="q1">
+    <div class="main-box" id="q1">
         <h2>الجيل الجديد من التقنية</h2>
         <p>شهدت السنوات الأخيرة تطوراً متسارعاً في وسائل التفاعل الرقمي، حيث انتقلنا من الشاشات التقليدية الثنائية الأبعاد إلى بيئات رقمية تفاعلية بالكامل تغير طريقة تعاملنا مع البيانات والمعلومات اليومية.</p>
     </div>
 
-    <div id="q2">
+    <div class="main-box" id="q2">
         <h2>ما هي هذه التقنية؟</h2>
         <p>هي تقنية جديدة تسمح لنا بنقل وتجربة عوالم خيالية أو حقيقية وكأننا داخلها تماماً باستخدام نظارات وأجهزة خاصة لتدمج البيئة المحيطة بأنظمة الحاسب المتطورة.</p>
     </div>
 
-    <div id="q3" style="background-color: transparent;">
-        <h2>أبرز استخدامات التقنية</h2>
+    <div class="main-box" id="q3" style="background-color: transparent; padding: 0; margin: 25px;">
+        <h2 style="background-color: #111827; padding: 25px; margin: 0; border-radius: 12px 12px 0 0;">أبرز استخدامات التقنية</h2>
         
-        <center>
-            <div class="item-block">
-                <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
-                <h2>أولاً: الطب والتدريب الجراحي</h2>
-                <p>تساعد هذه التقنية الأطباء وطلاب كليات الطب على محاكاة العمليات الجراحية المعقدة وتطبيقها بشكل افتراضي آمن تماماً قبل الدخول الحقيقي لغرف العمليات.</p>
-            </div>
-            
-            <div class="item-block">
-                <img src="imges/military.jpg" onerror="this.src='military.jpg'; this.onerror=function(){this.src='imges/military.png';};" alt="الدفاع والأمان">
-                <h2>ثانياً: الدفاع والأمان</h2>
-                <p>تُستخدم في تدريب الجنود والطيارين على مواقف جبهات القتال والمناورات العسكرية الصعبة عبر بيئات محاكاة دقيقة تضمن سلامتهم ورفع كفاءتهم القتالية.</p>
-            </div>
-        </center>
-
-        <center>
-            <div class="item-block">
-                <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
-                <h2>ثالثاً: التعليم والمحاكاة العلمية</h2>
-                <p>تسمح للطلاب بالتفاعل المباشر مع المواد الدراسية، مثل استكشاف الفضاء الخارجي أو فحص الخلايا الحية من الداخل، مما يجعل تلقي المعلومات والدروس أكثر متعة ورسوخاً.</p>
-            </div>
-            
-            <div class="item-block">
-                <img src="imges/gaming.jpg" onerror="this.src='gaming.jpg'; this.onerror=function(){this.src='imges/gaming.png';};" alt="الألعاب والترفيه الرقمي">
-                <h2>رابعاً: الألعاب والترفيه الرقمي</h2>
-                <p>تعتبر المحرك الأساسي لألعاب الجيل الجديد، حيث ينغمس اللاعب بالكامل داخل اللعبة ويتحرك بداخلها بجميع حواسه بدلاً من مجرد المشاهدة من خلف الشاشات الثنائية.</p>
-            </div>
-        </center>
+        <table class="grid-table">
+            <tr>
+                <td class="grid-cell">
+                    <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
+                    <h2>أولاً: الطب والتدريب الجراحي</h2>
+                    <p>تساعد هذه التقنية الأطباء وطلاب كليات الطب على محاكاة العمليات الجراحية المعقدة وتطبيقها بشكل افتراضي آمن تماماً قبل الدخول الحقيقي لغرف العمليات.</p>
+                </td>
+                <td class="grid-cell">
+                    <img src="imges/military.jpg" onerror="this.src='military.jpg'; this.onerror=function(){this.src='imges/military.png';};" alt="الدفاع والأمان">
+                    <h2>ثانياً: الدفاع والأمان</h2>
+                    <p>تُستخدم في تدريب الجنود والطيارين على مواقف جبهات القتال والمناورات العسكرية الصعبة عبر بيئات محاكاة دقيقة تضمن سلامتهم ورفع كفاءتهم القتالية.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="grid-cell">
+                    <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
+                    <h2>ثالثاً: التعليم والمحاكاة العلمية</h2>
+                    <p>تسمح للطلاب بالتفاعل المباشر مع المواد الدراسية، مثل استكشاف الفضاء الخارجي أو فحص الخلايا الحية من الداخل، مما يجعل تلقي المعلومات والدروس أكثر متعة ورسوخاً.</p>
+                </td>
+                <td class="grid-cell">
+                    <img src="imges/gaming.jpg" onerror="this.src='gaming.jpg'; this.onerror=function(){this.src='imges/gaming.png';};" alt="الألعاب والترفيه الرقمي">
+                    <h2>رابعاً: الألعاب والترفيه الرقمي</h2>
+                    <p>تعتبر المحرك الأساسي لألعاب الجيل الجديد، حيث ينغمس اللاعب بالكامل داخل اللعبة ويتحرك بداخلها بجميع حواسه بدلاً من مجرد المشاهدة من خلف الشاشات الثنائية.</p>
+                </td>
+            </tr>
+        </table>
     </div>
 
-    <div id="q4">
+    <div class="main-box" id="q4">
         <p>شاهد هذا المقطع اللي يوضح الفرق بين الواقع الافتراضي والمعزز:</p>
         
         <video controls autoplay muted>
@@ -215,28 +225,7 @@
         <p>شكراً لكم على المشاهدة</p>
     </div>
 
-    <div>
-        <h2>شاركنا رأيك</h2>
-        <form name="myForm" onsubmit="return validateForm()">
-            <label>اكتب رأيك في هذه التقنية: </label>
-            <input type="text" name="userInput">
-            <button type="submit">إرسال</button>
-        </form>
-
-        <script>
-            function validateForm() {
-                var x = document.forms["myForm"]["userInput"].value;
-                if (x == "") {
-                    window.alert("تنبيه: فضلاً اكتب رأيك قبل الإرسال!");
-                    return false;
-                }
-                window.alert("شكراً لك! تم استقبال رأيك بنجاح.");
-                return true;
-            }
-        </script>
-    </div>
-
-    <div>
+    <div class="main-box">
         <p>للتواصل:</p>
         <a href="mailto:Fafaalbish@gmail.com">Fafaalbish@gmail.com</a>
         <p style="color: #6b7280; font-size: 13px;">جميع الحقوق محفوظة &copy; للطالبة فجر البيشي 2026</p>
