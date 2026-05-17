@@ -18,78 +18,13 @@
             padding: 0;
         }
 
-        .navbar {
-            background-color: #111827;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #374151;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 15px;
-        }
-
-        .nav-links a:hover {
-            color: #c084fc;
-        }
-
-        .hamburger-btn {
-            font-size: 24px;
-            cursor: pointer;
-            color: #cbd5e1;
-        }
-
-        .sidebar {
-            display: none;
-            background-color: #1f2937;
-            position: absolute;
-            top: 55px;
-            right: 0;
-            width: 200px;
-            padding: 10px;
-            border: 1px solid #374151;
-            border-radius: 0 0 0 8px;
-            z-index: 999;
-        }
-
-        .sidebar a {
-            display: block;
-            color: #cbd5e1;
-            text-decoration: none;
-            padding: 10px;
-            font-weight: bold;
-        }
-
-        .sidebar a:hover {
-            color: #c084fc;
-        }
-
-        #hijri-time {
-            font-size: 14px;
-            color: #c084fc;
-            font-weight: bold;
-        }
-
-        div.main-section {
+        /* شريط التنقل العلوي المكون من div عادي و روابط */
+        div {
             background-color: #111827; 
             color: #ffffff;
             text-align: center;
             padding: 25px;
-            margin: 25px;
-            border-radius: 12px;
+            margin-bottom: 25px;
         }
 
         h1 {
@@ -111,31 +46,30 @@
             color: #cbd5e1;
         }
 
-        /* تعديل التنسيق ليظهر صورتين فقط في كل سطر */
-        .gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            margin: 5px 10px;
+            display: inline-block;
         }
 
-        .gallery-item {
-            flex: 1;
+        a:hover {
+            color: #c084fc;
+        }
+
+        /* تنسيق الصناديق لعرض الصورتين جنب بعض بشكل كلاسيكي بسيط */
+        div.item-block {
+            display: inline-block;
+            width: 45%;
             min-width: 280px;
-            max-width: 45%; /* تحديد المساحة ليكونوا ثنتين ثنتين جنب بعض */
+            vertical-align: top;
+            margin: 10px;
             background-color: #1f2937;
             border: 1px solid #374151;
             padding: 15px;
             border-radius: 12px;
-            box-sizing: border-box;
-        }
-
-        .gallery-item p {
-            font-weight: bold;
-            color: #c084fc;
-            margin-top: 0;
-            font-size: 15px;
         }
 
         img {
@@ -144,7 +78,7 @@
             object-fit: cover; 
             border-radius: 8px; 
             border: 1px solid #374151;
-            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
         video {
@@ -161,11 +95,12 @@
             background-color: #c084fc;
             color: #0b0f19;
             border: none;
-            padding: 8px 16px;
-            font-size: 14px;
+            padding: 10px 20px;
+            font-size: 15px;
             font-weight: bold;
             border-radius: 6px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -182,108 +117,94 @@
             margin-left: 10px;
             text-align: center;
         }
-
-        @media (max-width: 768px) {
-            .gallery-item {
-                max-width: 90%;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <script>
-        window.alert("مرحباً بكم في مشروع التقنية الرقمية للطالبة فجر البيشي - شعبة 202");
-    </script>
-
-    <div class="navbar">
-        <div class="hamburger-btn" onclick="toggleSidebar()">☰</div>
+    <div>
+        <span style="font-size: 24px; cursor: pointer; float: right; color: #cbd5e1;" onclick="toggleMenu()">☰</span>
         
-        <div class="nav-links">
-            <a href="#q1">الرئيسية</a>
-            <a href="#q2">حول التقنية</a>
-            <a href="#q3">مجالات الاستخدام</a>
-            <a href="#q4">فيديو توضيحي</a>
-        </div>
-
-        <div id="hijri-time"></div>
-    </div>
-
-    <div class="sidebar" id="mySidebar">
         <a href="#q1">الرئيسية</a>
         <a href="#q2">حول التقنية</a>
         <a href="#q3">مجالات الاستخدام</a>
         <a href="#q4">فيديو توضيحي</a>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div id="menu" style="display: none; background-color: #1f2937;">
+        <a href="#q1" style="display: block; padding: 10px 0;">الرئيسية</a>
+        <a href="#q2" style="display: block; padding: 10px 0;">حول التقنية</a>
+        <a href="#q3" style="display: block; padding: 10px 0;">مجالات الاستخدام</a>
+        <a href="#q4" style="display: block; padding: 10px 0;">فيديو توضيحي</a>
     </div>
 
     <script>
-        function toggleSidebar() {
-            var sidebar = document.getElementById("mySidebar");
-            if (sidebar.style.display === "block") {
-                sidebar.style.display = "none";
+        function toggleMenu() {
+            var m = document.getElementById("menu");
+            if (m.style.display === "block") {
+                m.style.display = "none";
             } else {
-                sidebar.style.display = "block";
+                m.style.display = "block";
             }
         }
-
-        var options = { calendar: 'islamic-umalqura', day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' };
-        var formatter = new Intl.DateTimeFormat('ar-SA', options);
-        document.getElementById("hijri-time").innerHTML = formatter.format(new Date());
     </script>
 
-    <div class="main-section">
+    <div>
         <h1>الواقع الافتراضي والمعزز</h1>
         <p>عمل الطالبة: فجر البيشي | شعبة: 202</p>
         
+        <button onclick="showGreeting()">اضغط هنا للترحيب</button>
+
         <script>
-            var d = new Date();
-            var hour = d.getHours();
-            var greeting;
-
-            if (hour < 12) {
-                greeting = "صباح الخير وأهلاً بكم.";
-            } else {
-                greeting = "مساء الخير وأهلاً بكم.";
+            function showGreeting() {
+                window.alert("أهلاً وسهلاً بكم في المشروع");
             }
-
-            document.write("<p style='color: #c084fc; font-weight: bold; margin: 5px 0 0 0;'> " + greeting + "</p>");
         </script>
     </div>
 
-    <div class="main-section" id="q1">
+    <div id="q1">
         <h2>الجيل الجديد من التقنية</h2>
         <p>شهدت السنوات الأخيرة تطوراً متسارعاً في وسائل التفاعل الرقمي، حيث انتقلنا من الشاشات التقليدية الثنائية الأبعاد إلى بيئات رقمية تفاعلية بالكامل تغير طريقة تعاملنا مع البيانات والمعلومات اليومية.</p>
     </div>
 
-    <div class="main-section" id="q2">
+    <div id="q2">
         <h2>ما هي هذه التقنية؟</h2>
         <p>هي تقنية جديدة تسمح لنا بنقل وتجربة عوالم خيالية أو حقيقية وكأننا داخلها تماماً باستخدام نظارات وأجهزة خاصة لتدمج البيئة المحيطة بأنظمة الحاسب المتطورة.</p>
     </div>
 
-    <div class="main-section" id="q3">
+    <div id="q3" style="background-color: transparent;">
         <h2>أبرز استخدامات التقنية</h2>
         
-        <div class="gallery">
-            <div class="gallery-item">
-                <p>أولاً: الطب والتدريب الجراحي</p>
+        <center>
+            <div class="item-block">
                 <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
+                <h2>أولاً: الطب والتدريب الجراحي</h2>
+                <p>تساعد هذه التقنية الأطباء وطلاب كليات الطب على محاكاة العمليات الجراحية المعقدة وتطبيقها بشكل افتراضي آمن تماماً قبل الدخول الحقيقي لغرف العمليات.</p>
             </div>
-            <div class="gallery-item">
-                <p>ثانياً: الدفاع والأمان</p>
+            
+            <div class="item-block">
                 <img src="imges/military.jpg" onerror="this.src='military.jpg'; this.onerror=function(){this.src='imges/military.png';};" alt="الدفاع والأمان">
+                <h2>ثانياً: الدفاع والأمان</h2>
+                <p>تُستخدم في تدريب الجنود والطيارين على مواقف جبهات القتال والمناورات العسكرية الصعبة عبر بيئات محاكاة دقيقة تضمن سلامتهم ورفع كفاءتهم القتالية.</p>
             </div>
-            <div class="gallery-item">
-                <p>ثالثاً: التعليم والمحاكاة العلمية</p>
+        </center>
+
+        <center>
+            <div class="item-block">
                 <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
+                <h2>ثالثاً: التعليم والمحاكاة العلمية</h2>
+                <p>تسمح للطلاب بالتفاعل المباشر مع المواد الدراسية، مثل استكشاف الفضاء الخارجي أو فحص الخلايا الحية من الداخل، مما يجعل تلقي المعلومات والدروس أكثر متعة ورسوخاً.</p>
             </div>
-            <div class="gallery-item">
-                <p>رابعاً: الألعاب والترفيه الرقمي</p>
+            
+            <div class="item-block">
                 <img src="imges/gaming.jpg" onerror="this.src='gaming.jpg'; this.onerror=function(){this.src='imges/gaming.png';};" alt="الألعاب والترفيه الرقمي">
+                <h2>رابعاً: الألعاب والترفيه الرقمي</h2>
+                <p>تعتبر المحرك الأساسي لألعاب الجيل الجديد، حيث ينغمس اللاعب بالكامل داخل اللعبة ويتحرك بداخلها بجميع حواسه بدلاً من مجرد المشاهدة من خلف الشاشات الثنائية.</p>
             </div>
-        </div>
+        </center>
     </div>
 
-    <div class="main-section" id="q4">
+    <div id="q4">
         <p>شاهد هذا المقطع اللي يوضح الفرق بين الواقع الافتراضي والمعزز:</p>
         
         <video controls autoplay muted>
@@ -294,7 +215,7 @@
         <p>شكراً لكم على المشاهدة</p>
     </div>
 
-    <div class="main-section">
+    <div>
         <h2>شاركنا رأيك</h2>
         <form name="myForm" onsubmit="return validateForm()">
             <label>اكتب رأيك في هذه التقنية: </label>
@@ -315,7 +236,7 @@
         </script>
     </div>
 
-    <div class="main-section">
+    <div>
         <p>للتواصل:</p>
         <a href="mailto:Fafaalbish@gmail.com">Fafaalbish@gmail.com</a>
         <p style="color: #6b7280; font-size: 13px;">جميع الحقوق محفوظة &copy; للطالبة فجر البيشي 2026</p>
