@@ -58,40 +58,16 @@
             color: #c084fc;
         }
 
-        .img-container {
-            background-color: transparent;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .img-box {
-            background-color: #1f2937;
-            border: 1px solid #374151;
-            padding: 15px;
-            border-radius: 12px;
-            width: 45%;
-            min-width: 280px;
-            box-sizing: border-box;
-            margin-bottom: 0;
-        }
-
-        .img-box p {
-            font-weight: bold;
-            color: #c084fc;
-            margin-top: 0;
-        }
-
         img {
             max-width: 100%;
-            width: 100%;
+            width: 45%;
+            min-width: 280px;
             height: 200px;
             object-fit: cover; 
             border-radius: 8px; 
             border: 1px solid #374151;
+            margin: 10px;
+            display: inline-block;
         }
 
         video {
@@ -119,7 +95,7 @@
             background-color: #a855f7;
         }
 
-        select {
+        input {
             padding: 8px;
             font-size: 15px;
             border-radius: 6px;
@@ -127,6 +103,7 @@
             color: #ffffff;
             border: 1px solid #374151;
             margin-left: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -134,6 +111,16 @@
 
     <script>
         window.alert("مرحباً بكم في مشروع التقنية الرقمية للطالبة فجر البيشي - شعبة 202");
+    </script>
+
+    <div>
+        <p id="hijri-time" style="color: #c084fc; font-weight: bold; text-align: right; margin: 0; font-size: 14px;"></p>
+    </div>
+
+    <script>
+        var options = { calendar: 'islamic-umalqura', day: 'numeric', month: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+        var formatter = new Intl.DateTimeFormat('ar-SA', options);
+        document.getElementById("hijri-time").innerHTML = formatter.format(new Date());
     </script>
 
     <div>
@@ -146,12 +133,12 @@
             var greeting;
 
             if (hour < 12) {
-                greeting = "صباح الخير وأهلاً بكم في موقعي.";
+                greeting = "صباح الخير وأهلاً بكم.";
             } else {
-                greeting = "مساء الخير وأهلاً بكم في موقعي.";
+                greeting = "مساء الخير وأهلاً بكم.";
             }
 
-            document.write("<p style='color: #c084fc; font-weight: bold; margin: 5px 0 0 0;'>" + greeting + "</p>");
+            document.write("<p style='color: #c084fc; font-weight: bold; margin: 5px 0 0 0;'> " + greeting + "</p>");
         </script>
     </div>
 
@@ -165,34 +152,20 @@
     <div id="q1">
         <h2>الجيل الجديد من التقنية</h2>
         <p>شهدت السنوات الأخيرة تطوراً متسارعاً في وسائل التفاعل الرقمي، حيث انتقلنا من الشاشات التقليدية الثنائية الأبعاد إلى بيئات رقمية تفاعلية بالكامل تغير طريقة تعاملنا مع البيانات والمعلومات اليومية.</p>
-        
-        <p id="time-display" style="color: #c084fc; font-weight: bold;"></p>
-        
-        <script>
-            var currentDateTime = new Date();
-            document.getElementById("time-display").innerHTML = "تاريخ ووقت زيارتك الحالي: " + currentDateTime.toLocaleString('ar-SA');
-        </script>
     </div>
 
     <div id="q2">
-        <h2>ما هي هذه التقنية؟</h2>
+        <h2>ما هي هذه التقنية？</h2>
         <p>هي تقنية جديدة تسمح لنا بنقل وتجربة عوالم خيالية أو حقيقية وكأننا داخلها تماماً باستخدام نظارات وأجهزة خاصة لتدمج البيئة المحيطة بأنظمة الحاسب المتطورة.</p>
     </div>
 
     <div id="q3">
         <h2>أبرز استخدامات التقنية</h2>
+        <p>أولاً: الطب والتدريب الجراحي</p>
+        <p>ثانياً: التعليم والمحاكاة العلمية</p>
         
-        <div class="img-container">
-            <div class="img-box">
-                <p>أولاً: الطب والتدريب الجراحي</p>
-                <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
-            </div>
-
-            <div class="img-box">
-                <p>ثانياً: التعليم والمحاكاة العلمية</p>
-                <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
-            </div>
-        </div>
+        <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
+        <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
     </div>
 
     <div id="q4">
@@ -207,25 +180,21 @@
     </div>
 
     <div>
-        <h2>شاركنا رأيك في الموقع</h2>
+        <h2>شاركنا رأيك</h2>
         <form name="myForm" onsubmit="return validateForm()">
-            <label>ما هي أكثر تقنية نالت إعجابك؟ </label>
-            <select name="techSelect">
-                <option value="">-- اختر من القائمة --</option>
-                <option value="vr">الواقع الافتراضي VR</option>
-                <option value="ar">الواقع المعزز AR</option>
-            </select>
-            <button type="submit">إرسال الرأي</button>
+            <label>اكتب رأيك في هذه التقنية: </label>
+            <input type="text" name="userInput">
+            <button type="submit">إرسال</button>
         </form>
 
         <script>
             function validateForm() {
-                var x = document.forms["myForm"]["techSelect"].value;
+                var x = document.forms["myForm"]["userInput"].value;
                 if (x == "") {
-                    window.alert("تنبيه: فضلاً اختر تقنية من القائمة المنسدلة قبل الإرسال!");
+                    window.alert("تنبيه: فضلاً اكتب رأيك قبل الإرسال!");
                     return false;
                 }
-                window.alert("شكراً لك! تم استقبال اختيارك بنجاح.");
+                window.alert("شكراً لك! تم استقبال رأيك بنجاح.");
                 return true;
             }
         </script>
