@@ -16,7 +16,6 @@
             font-family: 'Tajawal', sans-serif;
             margin: 0;
             padding: 0;
-            position: relative;
         }
 
         div {
@@ -59,27 +58,39 @@
             color: #c084fc;
         }
 
-        /* نقل أيقونة الهامبرغر للزاوية العلوية اليمنى بشكل مرتب وبدون نص */
-        .hamburger-icon {
-            font-size: 26px;
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #cbd5e1;
+        .img-container {
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .hamburger-icon:hover {
+        .img-box {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            padding: 15px;
+            border-radius: 12px;
+            width: 45%;
+            min-width: 280px;
+            box-sizing: border-box;
+            margin-bottom: 0;
+        }
+
+        .img-box p {
+            font-weight: bold;
             color: #c084fc;
+            margin-top: 0;
         }
 
         img {
             max-width: 100%;
             width: 100%;
-            height: 160px;
+            height: 200px;
             object-fit: cover; 
             border-radius: 8px; 
-            margin-top: 15px;
             border: 1px solid #374151;
         }
 
@@ -97,12 +108,11 @@
             background-color: #c084fc;
             color: #0b0f19;
             border: none;
-            padding: 10px 20px;
-            font-size: 15px;
+            padding: 8px 16px;
+            font-size: 14px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            margin-top: 10px;
         }
 
         button:hover {
@@ -126,8 +136,6 @@
         window.alert("مرحباً بكم في مشروع التقنية الرقمية للطالبة فجر البيشي - شعبة 202");
     </script>
 
-    <span class="hamburger-icon">☰</span>
-
     <div>
         <h1>الواقع الافتراضي والمعزز</h1>
         <p>عمل الطالبة: فجر البيشي | شعبة: 202</p>
@@ -143,7 +151,7 @@
                 greeting = "مساء الخير وأهلاً بكم في موقعي.";
             }
 
-            document.write("<p style='color: #c084fc; font-weight: bold;'>" + greeting + "</p>");
+            document.write("<p style='color: #c084fc; font-weight: bold; margin: 5px 0 0 0;'>" + greeting + "</p>");
         </script>
     </div>
 
@@ -158,14 +166,11 @@
         <h2>الجيل الجديد من التقنية</h2>
         <p>شهدت السنوات الأخيرة تطوراً متسارعاً في وسائل التفاعل الرقمي، حيث انتقلنا من الشاشات التقليدية الثنائية الأبعاد إلى بيئات رقمية تفاعلية بالكامل تغير طريقة تعاملنا مع البيانات والمعلومات اليومية.</p>
         
-        <p id="demo">يمكنك معرفة التوقيت والتاريخ الحالي هنا:</p>
-        <button onclick="myFunction()">عرض الوقت والتاريخ</button>
-
+        <p id="time-display" style="color: #c084fc; font-weight: bold;"></p>
+        
         <script>
-            function myFunction() {
-                var currentDateTime = new Date();
-                document.getElementById("demo").innerHTML = "التاريخ والوقت الحالي هو: " + currentDateTime;
-            }
+            var currentDateTime = new Date();
+            document.getElementById("time-display").innerHTML = "تاريخ ووقت زيارتك الحالي: " + currentDateTime.toLocaleString('ar-SA');
         </script>
     </div>
 
@@ -177,11 +182,17 @@
     <div id="q3">
         <h2>أبرز استخدامات التقنية</h2>
         
-        <p>أولاً: الطب والتدريب الجراحي</p>
-        <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
+        <div class="img-container">
+            <div class="img-box">
+                <p>أولاً: الطب والتدريب الجراحي</p>
+                <img src="imges/medical.jpg" onerror="this.src='medical.jpg'; this.onerror=function(){this.src='imges/medical.png';};" alt="الطب والتدريب الجراحي">
+            </div>
 
-        <p>ثانياً: التعليم والمحاكاة العلمية</p>
-        <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
+            <div class="img-box">
+                <p>ثانياً: التعليم والمحاكاة العلمية</p>
+                <img src="imges/education.jpg" onerror="this.src='education.jpg'; this.onerror=function(){this.src='imges/education.png';};" alt="التعليم والمحاكاة العلمية">
+            </div>
+        </div>
     </div>
 
     <div id="q4">
