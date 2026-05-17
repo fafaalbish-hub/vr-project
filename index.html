@@ -111,6 +111,7 @@
             color: #cbd5e1;
         }
 
+        /* تعديل التنسيق ليظهر صورتين فقط في كل سطر */
         .gallery {
             display: flex;
             justify-content: center;
@@ -121,8 +122,8 @@
 
         .gallery-item {
             flex: 1;
-            min-width: 250px;
-            max-width: 23%;
+            min-width: 280px;
+            max-width: 45%; /* تحديد المساحة ليكونوا ثنتين ثنتين جنب بعض */
             background-color: #1f2937;
             border: 1px solid #374151;
             padding: 15px;
@@ -134,12 +135,12 @@
             font-weight: bold;
             color: #c084fc;
             margin-top: 0;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         img {
             width: 100%;
-            height: 150px;
+            height: 180px;
             object-fit: cover; 
             border-radius: 8px; 
             border: 1px solid #374151;
@@ -182,13 +183,7 @@
             text-align: center;
         }
 
-        @media (max-width: 900px) {
-            .gallery-item {
-                max-width: 45%;
-            }
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .gallery-item {
                 max-width: 90%;
             }
