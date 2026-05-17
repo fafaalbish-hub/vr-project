@@ -16,6 +16,7 @@
             font-family: 'Tajawal', sans-serif;
             margin: 0;
             padding: 0;
+            position: relative;
         }
 
         div {
@@ -58,11 +59,18 @@
             color: #c084fc;
         }
 
+        /* نقل أيقونة الهامبرغر للزاوية العلوية اليمنى بشكل مرتب وبدون نص */
         .hamburger-icon {
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
-            display: inline-block;
-            margin-bottom: 10px;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #cbd5e1;
+        }
+
+        .hamburger-icon:hover {
+            color: #c084fc;
         }
 
         img {
@@ -118,6 +126,8 @@
         window.alert("مرحباً بكم في مشروع التقنية الرقمية للطالبة فجر البيشي - شعبة 202");
     </script>
 
+    <span class="hamburger-icon">☰</span>
+
     <div>
         <h1>الواقع الافتراضي والمعزز</h1>
         <p>عمل الطالبة: فجر البيشي | شعبة: 202</p>
@@ -128,9 +138,9 @@
             var greeting;
 
             if (hour < 12) {
-                greeting = "صباح الخير! أهلاً بك في موقعي الصباحي.";
+                greeting = "صباح الخير وأهلاً بكم في موقعي.";
             } else {
-                greeting = "مساء الخير! أهلاً بك في موقعي المسائي.";
+                greeting = "مساء الخير وأهلاً بكم في موقعي.";
             }
 
             document.write("<p style='color: #c084fc; font-weight: bold;'>" + greeting + "</p>");
@@ -138,8 +148,6 @@
     </div>
 
     <div>
-        <span class="hamburger-icon">☰ قائمة الموقع</span>
-        <br>
         <a href="#q1">الرئيسية</a>
         <a href="#q2">حول التقنية</a>
         <a href="#q3">مجالات الاستخدام</a>
