@@ -117,6 +117,20 @@
         button:hover {
             background-color: #a855f7;
         }
+
+        @media (max-width: 768px) {
+            table.grid-table, table.grid-table tbody, table.grid-table tr, td.grid-cell {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            table.grid-table {
+                border-spacing: 0px;
+            }
+            td.grid-cell {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
